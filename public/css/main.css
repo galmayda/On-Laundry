@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* navbar */
+.navbar {
+    background-color: #FFFFFF;
+    border-color: #E7E7E7;
+}
+.login-button{
+	float: right;
+}
+
+/* Section 1 */
+.jumbotron{
+	background-color: #00B1EF;
+	border-color: #E7E7E7;
+}
+
+/* Section 2 */

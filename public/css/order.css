@@ -1,0 +1,13 @@
+.card {
+  border-color: #2B3990;
+}
+
+#btn-lanjut {
+  border-color: #2B3990;
+  color: #ffffff;
+  background-color: #2b3990;
+}
+
+.container{
+  padding: 2.5em 0;
+}

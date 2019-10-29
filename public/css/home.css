@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+
+#header{
+	background-color:#10FFCE;
+	
+}
+.header-text {
+	padding-top: 100px;
+	text-align: right;	
+}
+
+.img-header {
+	text-align: center;
+	padding-top: 60px;
+}
+
+h1{
+	font-size: 63px;	
+}
+.header-btn {
+	background-color: transparent ; 
+	border-color: black;
+    color: black; 
+}
+.header-btn:hover{
+	background-color:#2B3990 ;
+	border-color: transparent;
+    color: white ; 
+}
+
+.section{
+	padding: 2.5em 0;
+}
+.service {
+	text-align: center;
+}
+
+#main2{
+	background-color: #10FFCE;
+}
+
+h6{
+	color: #2A3990
+}
+.tab-link{
+	background-color: transparent;
+	border: 1px solid #2A3990;
+}
+.nav-link:hover{
+	border: none;	
+}
+.tab-img {
+	text-align: center;
+	padding: 5px;
+}

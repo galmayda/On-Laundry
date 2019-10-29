@@ -1,0 +1,15 @@
+    <nav class="navbar navbar-light navbar-expand-md border rounded-0">
+        <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/') }}">HOME</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/services') }}">LAYANAN</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/aboutus') }}">TENTANG KAMI</a></li>
+                </ul><a class="navbar-brand text-center ml-auto" href="{{ url('/') }}"><img class="img-fluid nav-logo" src="{{ asset('images/Logo On Laundry.png')}}"></a>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/order') }}">ORDER</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url('/login') }}">LOGIN/REGISTER</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>

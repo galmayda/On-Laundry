@@ -1,0 +1,28 @@
+#navcol-1 .navbar-nav .nav-link.active, #navcol-1 .navbar-nav .nav-link:hover {
+    color: white;
+    background-color: #2B3990;
+}
+  
+#navcol-1 .navbar-nav .nav-link {
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    transition: all ease .3s;
+    margin-right: 5px;
+    margin-left: 5px;
+    
+    border-radius: 5px;
+    color: #2B3990;    
+}
+
+.navbar{
+    background-color: #fcfcfc;
+}
+
+.nav-link.active{
+    background: red;
+}
+
+.nav-logo{
+    width: 75px;
+}
