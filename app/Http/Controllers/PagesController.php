@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PagesController extends Controller
 {
@@ -10,7 +11,11 @@ class PagesController extends Controller
         return view('index');
     }
 
-    public function order(){
-        return view('order');
+    public function services(){
+        return view('services');
+    }
+
+    public function aboutus(){
+        return view('aboutus');
     }
 }
