@@ -17,7 +17,7 @@
 
 		@if(count($errors))
 			<div class="alert alert-danger">
-				<strong>Whoops!</strong> There were some problems with your input.
+				<strong>Oops!</strong> Ada kesalahan yang terjadi.
 				<br/>
 				<ul>
 					@foreach($errors->all() as $error)
@@ -32,7 +32,8 @@
 		  {{ csrf_field() }}
 		  <input type="name" name="name" placeholder="Nama Lengkap" required/>
 		  <input type="username" name="username" placeholder="Username" required/>
-		  <input type="password" name="password" placeholder="Password" required/>      
+		  <input type="password" name="password" placeholder="Password" required/>  
+		  <input type="password" name="confirmpass" placeholder="Confirm Password" required/>	     
 		  <input type="email" name="email" placeholder="Email Address" required/>
 		  <input type="notelp" name="notelp" placeholder="Nomor Telepon" required/>	  
 		  <input type="submit" name="register" class="btn register-btn" value="Register">   

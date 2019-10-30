@@ -16,4 +16,3 @@ Route::get('/order', 'PagesController@order');
 Route::get('/login', 'AuthController@login');
 Route::post('/register', 'AuthController@postRegister')->name('register');
 Route::post('/login', 'AuthController@postLogin')->name('login');
-Redirect::back()->withErrors(['msg', 'The Message']);
