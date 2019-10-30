@@ -26,6 +26,18 @@
 				</ul>
 			</div>
 		@endif
+
+		@if(\Session::has('alert'))
+            <div class="alert alert-danger">
+                <div>{{Session::get('alert')}}</div>
+            </div>
+		@endif
+		
+        @if(\Session::has('alert-success'))
+            <div class="alert alert-success">
+                <div>{{Session::get('alert-success')}}</div>
+            </div>
+        @endif
 		  
 		<form class="register-form" method="POST" action="/register">
 		  <h1 class="title register-title">Register</h1>
@@ -43,7 +55,7 @@
 		<form class="login-form" method="POST" action="/login">
 		  <h1 class="title login-title">Login</h1>
 		  {{ csrf_field() }}		  
-		  <input type="username" name="username" placeholder="Username" required/>
+		  <input type="email" name="email" placeholder="Email" required/>
 		  <input type="password" name="password" placeholder="Password" required/>
 		  <input type="submit" name="login" class="btn login-btn" value="Login">  
 		  <p class="message">Not registered? <a href="#">Create an account</a></p>

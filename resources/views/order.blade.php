@@ -14,6 +14,7 @@
             <div class="col">
                 <div class="card" style="width: auto;">
                     <div class="card-body form-order">
+                        <form method="POST" action="/order">
                         <h4 class="card-title" style="color: #2b3990;">Pilih Jenis Laundry</h4>
                         <hr style="background-color: #2b3990;">
                         <section style="height: 40px;">
@@ -28,8 +29,8 @@
                         </section>
                         <h4 class="card-title" style="color: #2b3990;">Detail Pengambilan dan Pengantaran</h4>
                         <hr style="background-color: #2b3990;">
-                        <h5 class="text-muted card-subtitle mb-2">Nama Lengkap</h5><input name="namalengkap" type="text" style="margin-bottom: 15px;width: 350px;">
-                        <h5 class="text-muted card-subtitle mb-2">Nomor Telepon</h5><input name="notelp" type="text" style="margin-bottom: 15px;width: 350px;">
+                        <h5 class="text-muted card-subtitle mb-2">Nama Lengkap</h5><input name="namalengkap" type="text" style="margin-bottom: 15px;width: 350px;" value="{{Session::get('name')}}">
+                        <h5 class="text-muted card-subtitle mb-2">Nomor Telepon</h5><input name="notelp" type="text" style="margin-bottom: 15px;width: 350px;" value="{{Session::get('notelp')}}">
                         <h5 class="text-muted card-subtitle mb-2">Parfum</h5>
                         <div class="dropdown" style="margin-bottom: 15px;">
                             <button id="option" class="btn dropdown-toggle border rounded border-dark" data-toggle="dropdown" aria-expanded="false" type="button" style="width: 192px;">Pilih Parfum </button>
@@ -41,12 +42,14 @@
                         </div>
                         <h5 class="text-muted card-subtitle mb-2">Alamat</h5><textarea name="alamat" cols="50" rows="5" required="" style="margin-bottom: 15px;"></textarea>
                         <h5 class="text-muted card-subtitle mb-2">Waktu Pengambilan</h5><input id="waktupengambilan" name="pengambilan" type="date" required="" style="margin-bottom: 15px;">
-                        <h5 class="text-muted card-subtitle mb-2">Waktu Pengantaran</h5><input id="waktupengantaran" name="pengantaran" type="date" readonly="" required="">
+                        <h5 class="text-muted card-subtitle mb-2">Waktu Pengantaran</h5><input id="waktupengantaran" name="pengantaran" type="date" readonly="">
                         <hr style="background-color: #2b3990;">
                         <div class="d-block">
                             <h4 class="d-inline-flex"  style="color: #2b3990;">Harga</h4>
                             <h4 class="d-inline-flex float-right" id="price" style="color: #2b3990;">Rp.&nbsp;</h4>
-                        </div><button class="btn float-right" id="btn-lanjut" type="submit" style="margin-top: 15px;">Lanjut</button></div>
+                        </div><button class="btn float-right" id="btn-lanjut" type="submit" style="margin-top: 15px;">Lanjut</button>
+                    </form>
+                    </div>                    
                     </div>
             </div>
             <div class="col-xl-4">

@@ -9,7 +9,7 @@
 @section('content')
   <!-- HEADER -->
 	        <section id="header" class="section">
-            <div class="container">
+            <div class="container">              
               <div class="row">
                 
                 <div class="col-sm-6 wow fadeInLeft img-header">
@@ -17,7 +17,7 @@
                 </div>
               
                 <div class="col-sm-6 wow fadeInRight header-text">
-                  <h1><strong>On-Laundry</strong></h1>			 
+                <h1><strong>On-Laundry</strong></h1>			 
                   <h3>Jasa Laundry terbaik di Telkom University!</h3>
                   
                   <br />            
