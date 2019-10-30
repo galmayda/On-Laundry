@@ -2,36 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\UserModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
     public function login(){
-        return view('login');
+        if(Session::has('name')){
+            return view('index');
+        }
+        else{
+            return view('login');
+        }
     }
 
     public function postLogin(Request $request){
-        $username = $request->username;
+        $email = $request->email;
         $password = $request->password;
-        $user = DB::table('users')->select('username','password')->where('username', $username)->where('password',$password)->get();
-        if($user->isEmpty()){
-            return redirect()->action('AuthController@login');
-        }
-        else{            
-            return redirect('/');
+        $data = UserModel::where('email',$email)->first();
+        if($data){
+            if(Hash::check($password,$data->password)){
+                Session::put('name', $data->name);
+                Session::put('email',$data->email);
+                Session::put('notelp',$data->notelp);
+                Session::put('alamat',$data->alamat);
+                Session::put('login',TRUE);
+                return redirect('/');
+            }
+            else{
+                return redirect('login')->with('alert', 'Email atau Password Salah!');
+            }
         }
     }
 
     public function postRegister(Request $request){
-        $user = new User();
+        $user = new UserModel();
 
         $this->validate($request,[
             'username' => 'required|min:8|max:20',
             'name' => 'required|min:1|max:20',
             'email' => 'required|email|unique:users',
-            'notelp' => 'required|min:11|max:16|numeric',
+            'notelp' => 'required|min:11|numeric',
             'password' => 'required|min:8|max:20',
             'confirmpass' => 'required|same:password'
         ],[
@@ -48,19 +62,23 @@ class AuthController extends Controller
             'name.max' => ' Panjang Nama tidak melebihi 20 karakter.',
             'notelp.required' => ' Field Nomor Telepon tidak boleh kosong.',
             'notelp.numeric' => ' Nomor Telepon harus numerik.',
-            'notelp.min' => ' Panjang Nomor Telepon harus 11 karakter atau lebih.',
-            'notelp.max' => ' Panjang Nomor Telepon tidak melebihi 16 karakter.',
+            'notelp.min' => ' Panjang Nomor Telepon harus 11 karakter atau lebih.',            
             'email.unique' => ' Email sudah terdaftar pada database.'
         ]);
 
         $user->username = $request->username;
-        $user->password = $request->password;
+        $user->password = bcrypt($request->password);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->notelp = $request->notelp;     
         
         $user->save();
 
-        return redirect('/');
+        return redirect('login')->with('alert-success','Kamu berhasil Register');
+    }
+
+    public function logout(){
+        Session::flush();
+        return redirect('login')->with('alert','Kamu sudah logout');
     }
 }
