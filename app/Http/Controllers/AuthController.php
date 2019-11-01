@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\UserModel;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -22,9 +23,10 @@ class AuthController extends Controller
     public function postLogin(Request $request){
         $email = $request->email;
         $password = $request->password;
-        $data = UserModel::where('email',$email)->first();
+        $data = User::where('email',$email)->first();        
         if($data){
             if(Hash::check($password,$data->password)){
+                Session::put('id', $data->user_id);
                 Session::put('name', $data->name);
                 Session::put('email',$data->email);
                 Session::put('notelp',$data->notelp);
@@ -39,7 +41,7 @@ class AuthController extends Controller
     }
 
     public function postRegister(Request $request){
-        $user = new UserModel();
+        $user = new User();
 
         $this->validate($request,[
             'username' => 'required|min:8|max:20',
